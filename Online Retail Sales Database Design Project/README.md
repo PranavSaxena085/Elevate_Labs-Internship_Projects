@@ -14,37 +14,37 @@ The database consists of five main entities:
 
 ###  Customers
 Stores information about buyers.
-- `Customer_ID` (Primary Key)
-- `Customer_Name`
-- `Email`
-- `Address`
+- Customer_ID (Primary Key)
+- Customer_Name
+- Email
+- Address
 
 ###  Products
 Holds product details and unit prices.
-- `Product_ID` (Primary Key)
-- `Product_Name`
-- `Price`
-- `Product_Quantity`
+- Product_ID (Primary Key)
+- Product_Name
+- Price
+- Product_Quantity
 
 ###  Orders
 Records customer orders.
-- `Order_ID` (Primary Key)
-- `Customer_ID` (Foreign Key referencing Customers)
-- `Order_Date`
+- Order_ID (Primary Key)
+- Customer_ID (Foreign Key referencing Customers)
+- Order_Date
 
 ###  OrderDetails
 Maps each order to products and their quantities.
-- `OrderDetail_ID` (Primary Key)
-- `Order_ID` (Foreign Key referencing Orders)
-- `Product_ID` (Foreign Key referencing Products)
-- `Quantity`
+- OrderDetail_ID (Primary Key)
+- Order_ID (Foreign Key referencing Orders)
+- Product_ID (Foreign Key referencing Products)
+- Quantity
 
 ###  Payments
 Stores payment information.
-- `Payment_ID` (Primary Key)
-- `Order_ID` (Foreign Key referencing Orders)
-- `Payment_Method`
-- `Amount_Paid`
+- Payment_ID (Primary Key)
+- Order_ID (Foreign Key referencing Orders)
+- Payment_Method
+- Amount_Paid
 
 > The schema is fully normalized to **Third Normal Form (3NF)** to eliminate redundancy and ensure data consistency across the database.
 
@@ -58,13 +58,13 @@ The project includes SQL queries that demonstrate business reporting, such as:
 - Quantity sold per product
 - Monthly revenue generated from sales
 
-These queries use `JOIN`, `GROUP BY`, aggregate functions (`SUM`, `COUNT`, `AVG`), and filtering clauses.
+These queries use JOIN, GROUP BY, aggregate functions (SUM, COUNT, AVG), and filtering clauses.
 
 ## Views Created
 To streamline frequent reports, the following views are included:
 1. **CustomerOrdersView** – Lists all customer orders with order date and amount paid.
 2. **ProductSalesView** – Displays each product with the total quantity sold.
-3. **MonthlyRevenueView** – Summarizes total revenue per month and year using `YEAR()` and `MONTH()` functions.
+3. **MonthlyRevenueView** – Summarizes total revenue per month and year using YEAR() and MONTH() functions.
 
 ## Conclusion
 This project demonstrates a complete SQL-based approach to designing and analyzing an e-commerce database. It includes ER modeling, normalization to 3NF, DDL scripts, data population, business queries, and view creation. The project lays the foundation for scalable and analyzable retail database systems and can be expanded further for dashboards or front-end applications.
