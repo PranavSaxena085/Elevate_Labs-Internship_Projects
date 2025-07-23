@@ -1,58 +1,109 @@
 # Real Estate Listings and Analytics
 
-## Objective
-To track real estate property listings and generate insightful reports using SQL. The focus is on analyzing average prices by region, identifying high-demand areas, and observing price trends using window functions.
+## Introduction
+This project is designed to manage and analyze real estate property listings, agents, buyers, and transactions. The goal is to generate valuable insights, such as average regional property prices, identify high-demand areas, and observe market trends using SQL window functions.
 
 ## Tools Used
-- **MySQL Workbench** for database design, SQL queries, and exporting results
-- **ChatGPT** was used to generate sample records for all tables
+- **Database System**: MySQL  
+- **SQL IDE**: MySQL Workbench  
+- **Data Source**: Generated using ChatGPT  
+- **Platform**: GitHub
 
-## Database Schema
+## Database Schema Overview
 
-The project is based on a normalized relational database with the following tables:
+The project includes the following four normalized relational tables:
 
-1. **Agents**: Stores real estate agent details
-2. **Properties**: Contains listing information for properties
-3. **Buyers**: Stores buyer details and budgets
-4. **Transactions**: Links properties to buyers and tracks sale information
+### 🔹 Agents
+Stores agent profiles and agency information.  
+- Agent_ID *(Primary Key)*  
+- Agent_Name  
+- Email  
+- Phone_Number  
+- Agency_Name  
 
-## Steps Involved in Building the Project
+### 🔹 Properties
+Details of real estate listings.  
+- Property_ID *(Primary Key)*  
+- Title  
+- Address  
+- City  
+- Region  
+- Price  
+- Size_sqft  
+- Property_Type  
+- Listing_Date  
+- Agent_ID *(Foreign Key referencing *Agents*)*  
 
-1. Created the database and tables with appropriate foreign key constraints.
-2. Inserted mock data into all four tables (Agents, Properties, Buyers, Transactions).
-3. Wrote queries to:
-   - Analyze average property prices by region.
-   - Create a view of high-demand areas.
-   - Generate price trend reports using window functions.
-4. Exported query results into CSV files using MySQL Workbench's export feature.
+### 🔹 Buyers
+Information about interested buyers.  
+- Buyer_ID *(Primary Key)*  
+- Buyer_Name  
+- Email  
+- Phone_Number  
+- Budget  
 
-## Queries & Reports Generated
+### 🔹 Transactions
+Captures sales activity between properties and buyers.  
+- Transaction_ID *(Primary Key)*  
+- Property_ID *(Foreign Key referencing *Properties*)*  
+- Buyer_ID *(Foreign Key referencing *Buyers*)*  
+- Agent_ID *(Foreign Key referencing *Agents*)*  
+- Sales_Price  
+- Transaction_Date  
 
-### 1. Average Prices by Region  
-**Query:** Calculates average prices across different regions.  
-**CSV File:** avg_price_by_region.csv
+> The schema is logically structured and normalized for efficient queries and integrity.
 
-### 2. Average Prices by Region (Descending Order)  
-**Query:** Shows regions sorted by highest average prices.  
-**CSV File:** avg_price_by_region_desc.csv
+## Sample Data
+Each table has been populated with 10 mock records to simulate realistic real estate listings and transactions.  
+*Sample data was created using ChatGPT to match diverse property types, locations, and buyers.*
 
-### 3. High-Demand Areas View  
-**Query:** Creates a view for cities with 2 or more transactions and their average sales price.  
-**CSV File:** high_demand_areas.csv
+## Key Queries and Reports
 
-### 4. Price Trend Report using Window Functions  
-**Query:** Uses LAG() and LEAD() functions to compare previous and next transaction prices per city.  
-**CSV File:** price_trend_report.csv
+The project includes the following analysis:
+
+- **Average Prices by Region**: Compares property prices by region.
+- **Sorted Price Insights**: Finds regions with the highest average prices.
+- **High-Demand Area Identification**: A view that highlights cities/regions with multiple transactions.
+- **Price Trend Analysis**: Uses window functions like LAG() and LEAD() to identify past and future price trends per city.
+
+SQL Concepts Used:
+- GROUP BY and aggregate functions (AVG, COUNT)  
+- JOIN for combining tables  
+- ORDER BY, HAVING for filtering insights  
+- WINDOW FUNCTIONS for time-series analysis  
+- CREATE VIEW for reusable query layers
+
+## Views Created
+
+### 🔸 High_Demand_Areas
+This view identifies cities and regions with 2 or more transactions and shows average sales prices, helping to highlight active real estate markets.
+
+## Trend Reports (Window Functions)
+Using LAG() and LEAD(), trend reports were generated to show:
+
+- **Previous Price** of a property sold in the same city
+- **Future Price** expected based on sale chronology
+
+This allows observation of pricing fluctuations over time per city.
+
+## Exported CSV Reports
+
+The following result tables were exported and saved under a dedicated folder:
+
+1. avg_price_by_region.csv  
+2. avg_price_by_region_desc.csv  
+3. high_demand_areas.csv  
+4. price_trend_report.csv  
+
+These contain query results and are useful for presentation or dashboard integration.
+
+## Project Features
+- Logical and normalized relational database design  
+- Realistic mock dataset simulating real-world real estate activity  
+- Insightful SQL reports with window functions  
+- Clean, structured SQL file for reproducibility  
+- Exported CSVs ready for use in data analysis tools  
 
 ## Conclusion
-
-This project demonstrates how SQL can be used to design and analyze a real estate database. It covers key skills such as database design, JOINs, aggregation, views, and window functions. The output is cleanly organized through exported CSVs for further use or reporting.
-
-## 📁 Deliverables
-
-- SQL Script: Project 2. Real Estate Listings and Analytics.sql
-- CSV Files:
-  - avg_price_by_region.csv
-  - avg_price_by_region_desc.csv
-  - high_demand_areas.csv
-  - price_trend_report.csv
+This project fulfills all the internship objectives — from schema modeling and data population to complex SQL querying and trend analysis.  
+It sets a strong foundation for building real estate analytics dashboards using tools like Power BI, Tableau, or web-based applications.
