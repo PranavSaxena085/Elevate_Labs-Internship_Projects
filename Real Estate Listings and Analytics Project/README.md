@@ -45,9 +45,9 @@ Information about interested buyers.
 ### 🔹 Transactions
 Captures sales activity between properties and buyers.  
 - Transaction_ID *(Primary Key)*  
-- Property_ID *(Foreign Key referencing *Properties*)*  
-- Buyer_ID *(Foreign Key referencing *Buyers*)*  
-- Agent_ID *(Foreign Key referencing *Agents*)*  
+- Property_ID *(Foreign Key referencing -Properties-)*  
+- Buyer_ID *(Foreign Key referencing -Buyers-)*  
+- Agent_ID *(Foreign Key referencing -Agents-)*  
 - Sales_Price  
 - Transaction_Date  
 
