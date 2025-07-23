@@ -1,0 +1,11 @@
+City,Region,Transaction_Date,Sales_Price,Previous_Price,Future_Price
+Bangalore,Karnataka,2025-02-05,24000000.00,NULL,NULL
+Chennai,"Tamil Nadu",2025-07-15,26000000.00,NULL,NULL
+Delhi,Delhi,2025-04-28,17500000.00,NULL,NULL
+Hyderabad,Telangana,2025-03-15,11800000.00,NULL,31000000.00
+Hyderabad,Telangana,2025-06-15,31000000.00,11800000.00,NULL
+Kolkata,"West Bengal",2025-05-10,7600000.00,NULL,NULL
+Mumbai,Maharashtra,2025-01-10,9200000.00,NULL,NULL
+Noida,"Uttar Pradesh",2025-07-01,13800000.00,NULL,NULL
+Pune,Maharashtra,2025-06-01,8700000.00,NULL,6000000.00
+Pune,Maharashtra,2025-07-10,6000000.00,8700000.00,NULL
