@@ -1,4 +1,4 @@
-# Real Estate Listings and Analytics
+# Real Estate Listings and Analytics Project
 
 ## Introduction
 This project is designed to manage and analyze real estate property listings, agents, buyers, and transactions. The goal is to generate valuable insights, such as average regional property prices, identify high-demand areas, and observe market trends using SQL window functions.
